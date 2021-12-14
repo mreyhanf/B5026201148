@@ -37,6 +37,8 @@ Route::post('/pegawai/store','PegawaiController@store');
 Route::get('/pegawai/edit/{id}','PegawaiController@edit');
 Route::post('/pegawai/update','PegawaiController@update');
 Route::get('/pegawai/hapus/{id}','PegawaiController@hapus');
+Route::get('/pegawai/cari','PegawaiController@cari');
+Route::get('/pegawai/view/{id}','PegawaiController@detail');
 
 //route CRUD tabel 'tugas'
 Route::get('/tugas', 'TugasController@index');
@@ -54,3 +56,12 @@ Route::get('/absen/edit/{id}','AbsenController@edit');
 Route::post('/absen/update','AbsenController@update');
 Route::get('/absen/hapus/{id}','AbsenController@hapus');
 
+//route CRUD tabel 'bolpen'
+Route::get('/bolpen','BolpenController@index');
+Route::get('/bolpen/tambah','BolpenController@tambah');
+Route::post('/bolpen/store','BolpenController@store');
+Route::get('/bolpen/edit/{kodebolpen}','BolpenController@edit');
+Route::post('/bolpen/update','BolpenController@update');
+Route::get('/bolpen/hapus/{kodebolpen}','BolpenController@hapus');
+Route::get('/bolpen/cari','BolpenController@cari');
+Route::get('/bolpen/view/{kodebolpen}','BolpenController@detail');

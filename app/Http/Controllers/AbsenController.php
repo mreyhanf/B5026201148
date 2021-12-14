@@ -47,10 +47,8 @@ public function edit($id)
 
     $pegawai = DB::table('pegawai')->orderBy('pegawai_nama', 'asc')->get();
 
-    $judul = "Haloo Apa Kabar" ;
-
 	// passing data pegawai yang didapat ke view edit.blade.php
-	return view('absen.edit',['absen' => $absen,'pegawai' => $pegawai,'judul' => $judul]);
+	return view('absen.edit',['absen' => $absen,'pegawai' => $pegawai]);
 }
 // update data pegawai
 public function update(Request $request)

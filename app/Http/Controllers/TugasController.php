@@ -9,8 +9,12 @@ class TugasController extends Controller
 {
     public function index()
     {
-    	// mengambil data dari table 'tugas'
-    	$tugas = DB::table('tugas')->get();
+    	// // mengambil data dari table 'tugas'
+    	// $tugas = DB::table('tugas')->get();
+        $tugas = DB::table('tugas')
+        ->join('pegawai', 'tugas.IDPegawai', '=', 'pegawai.pegawai_id')
+        ->select('tugas.*', 'pegawai.pegawai_nama')
+        ->paginate(2) ;
 
     	// mengirim data tugas ke view index
     	return view('tugas.index',['tugas' => $tugas]);
@@ -20,7 +24,9 @@ class TugasController extends Controller
     public function tambah()
     {
         //memanggil view tambah
-        return view('tugas.tambah');
+        $pegawai = DB::table('pegawai')->orderBy('pegawai_nama', 'asc')->get();
+
+        return view('tugas.tambah', ['pegawai' => $pegawai]);
     }
 
     // method untuk insert data ke tabel 'tugas'
@@ -29,9 +35,9 @@ class TugasController extends Controller
 	    // insert data ke tabel 'tugas'
 	    DB::table('tugas')->insert([
 		    'IDPegawai' => $request->IDPegawai,
-		    'Tanggal' => $request->Tanggal,
+		    'Tanggal' => $request->tanggal,
 		    'NamaTugas' => $request->NamaTugas,
-		    'Status' => $request->Status
+		    'Status' => $request->status
 	    ]);
 	    // alihkan halaman ke halaman tugas
 	    return redirect('/tugas');
@@ -43,8 +49,9 @@ class TugasController extends Controller
     {
 	    // mengambil data tugas berdasarkan id yang dipilih
 	    $tugas = DB::table('tugas')->where('ID',$id)->get();
+        $pegawai = DB::table('pegawai')->orderBy('pegawai_nama', 'asc')->get();
 	    // passing data tugas yang didapat ke view edit.blade.php
-	    return view('tugas.edit',['tugas' => $tugas]);
+	    return view('tugas.edit',['tugas' => $tugas], ['pegawai' => $pegawai]);
 
     }
 
@@ -54,9 +61,9 @@ class TugasController extends Controller
 	    // update data tugas
 	    DB::table('tugas')->where('ID',$request->ID)->update([
 		    'IDPegawai' => $request->IDPegawai,
-		    'Tanggal' => $request->Tanggal,
+		    'Tanggal' => $request->tanggal,
 		    'NamaTugas' => $request->NamaTugas,
-		    'Status' => $request->Status
+		    'Status' => $request->status
 	    ]);
 	    // alihkan halaman ke halaman tugas
 	    return redirect('/tugas');
