@@ -13,6 +13,14 @@
     @foreach ($bolpen as $b)
         <div class="form-group row">
             <div class="col-sm-2">
+                <label for="kodebolpen">Kode Bolpen</label>
+            </div>
+            <div class="col-sm-2">
+                {{ $b->kodebolpen }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-2">
                 <label for="merkbolpen">Merk</label>
             </div>
             <div class="col-sm-2">

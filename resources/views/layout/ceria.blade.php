@@ -72,6 +72,7 @@ div.content {
         <a href="/absen">Absen</a>
         <a href="/tugas">Tugas</a>
         <a href="/bolpen">Bolpen</a>
+        <a href="/keranjangbelanja">Keranjang Belanja</a>
     </div>
     <div class="content">
     <h3>@yield('judulhalaman')</h3>

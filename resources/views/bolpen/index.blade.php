@@ -27,17 +27,13 @@
 
 	<table class="table table-success table-striped">
 		<tr>
-			<th>Kode Bolpen</th>
 			<th>Merk</th>
-			<th>Stock</th>
 			<th>Tersedia</th>
             <th>Opsi</th>
 		</tr>
 		@foreach($bolpen as $b)
 		<tr>
-			<td>{{ $b->kodebolpen }}</td>
 			<td>{{ $b->merkbolpen }}</td>
-			<td>{{ $b->stockbolpen }}</td>
 			<td>{{ $b->tersedia }}</td>
 			<td>
                 <a href="/bolpen/view/{{ $b->kodebolpen }}">View Detail</a>

@@ -65,3 +65,12 @@ Route::post('/bolpen/update','BolpenController@update');
 Route::get('/bolpen/hapus/{kodebolpen}','BolpenController@hapus');
 Route::get('/bolpen/cari','BolpenController@cari');
 Route::get('/bolpen/view/{kodebolpen}','BolpenController@detail');
+
+//route CRUD tabel 'keranjangbelanja'
+Route::get('/keranjangbelanja','KeranjangBelanjaController@index');
+Route::get('/keranjangbelanja/tambah','KeranjangBelanjaController@tambah');
+Route::post('/keranjangbelanja/store','KeranjangBelanjaController@store');
+Route::get('/keranjangbelanja/edit/{ID}','KeranjangBelanjaController@edit');
+Route::post('/keranjangbelanja/update','KeranjangBelanjaController@update');
+Route::get('/keranjangbelanja/hapus/{ID}','KeranjangBelanjaController@hapus');
+
