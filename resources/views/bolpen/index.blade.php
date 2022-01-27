@@ -23,7 +23,6 @@
     </div>
 
 	<br/>
-	<br/>
 
 	<table class="table table-success table-striped">
 		<tr>
